@@ -28,6 +28,7 @@ android {
 
 dependencies {
     compile libraries.tcmpCommandFamilyCommon
+    testCompile libraries.junit
 }
 
 

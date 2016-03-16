@@ -20,7 +20,7 @@ import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
 public class GetHardwareVersionCommand extends AbstractSystemMessage {
-    public static final byte COMMAND_CODE = (byte)0xFE;
+    public static final byte COMMAND_CODE = (byte)0xFF;
 
     public GetHardwareVersionCommand() {}
 

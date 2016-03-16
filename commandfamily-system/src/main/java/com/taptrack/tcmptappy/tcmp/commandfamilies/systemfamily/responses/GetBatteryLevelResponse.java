@@ -51,7 +51,7 @@ public class GetBatteryLevelResponse extends AbstractSystemMessage {
 
     @Override
     public byte[] getPayload() {
-        return new byte[0];
+        return new byte[]{batteryLevel};
     }
 
     @Override
