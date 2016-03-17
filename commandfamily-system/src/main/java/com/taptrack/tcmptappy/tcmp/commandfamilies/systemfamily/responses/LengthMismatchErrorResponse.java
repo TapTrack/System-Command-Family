@@ -19,6 +19,9 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses;
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * The Tappy has received a command with an improper length
+ */
 public class LengthMismatchErrorResponse extends AbstractSystemMessage {
     public static final byte COMMAND_CODE = 0x04;
 

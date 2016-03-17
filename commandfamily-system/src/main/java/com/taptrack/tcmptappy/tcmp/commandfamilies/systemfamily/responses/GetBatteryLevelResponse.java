@@ -19,6 +19,13 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses;
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * Response for a Tappy indicating its current battery level
+ *
+ * Has 5% resolution. In other words, a Tappy charging from 90%
+ * to full will report 90%, 95%, and 100%, but it will never report
+ * 91, 92, 93, 94, 96, 97, 98, or 99%.
+ */
 public class GetBatteryLevelResponse extends AbstractSystemMessage {
     public static final byte COMMAND_CODE = (byte) 0x08;
     private byte batteryLevel;

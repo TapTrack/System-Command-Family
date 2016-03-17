@@ -19,6 +19,9 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses;
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * The message the Tappy received does not correspond to the correct
+ */
 public class ImproperMessageFormatResponse extends AbstractSystemMessage {
     public static final byte COMMAND_CODE = 0x01;
 

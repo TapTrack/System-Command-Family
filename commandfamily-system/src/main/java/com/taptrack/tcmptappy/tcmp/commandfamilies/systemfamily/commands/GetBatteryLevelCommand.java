@@ -19,6 +19,9 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands;
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * Command to request that the Tappy report its current battery level
+ */
 public class GetBatteryLevelCommand extends AbstractSystemMessage {
     public static final byte COMMAND_CODE = (byte)0x02;
 

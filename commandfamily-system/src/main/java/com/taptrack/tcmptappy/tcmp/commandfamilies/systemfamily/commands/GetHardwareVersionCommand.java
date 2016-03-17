@@ -19,8 +19,11 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands;
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * Request the hardware version of the connected Tappy
+ */
 public class GetHardwareVersionCommand extends AbstractSystemMessage {
-    public static final byte COMMAND_CODE = (byte)0xFF;
+    public static final byte COMMAND_CODE = (byte)0xFE;
 
     public GetHardwareVersionCommand() {}
 

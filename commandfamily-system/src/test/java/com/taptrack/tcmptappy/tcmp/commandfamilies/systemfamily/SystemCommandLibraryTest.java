@@ -15,6 +15,7 @@ import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.Hardwa
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.ImproperMessageFormatResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.LcsMismatchErrorResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.LengthMismatchErrorResponse;
+import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.SystemErrorResponse;
 import com.taptrack.tcmptappy.tcmp.common.CommandCodeNotSupportedException;
 import com.taptrack.tcmptappy.tcmp.common.ResponseCodeNotSupportedException;
 
@@ -98,6 +99,7 @@ public class SystemCommandLibraryTest {
         testResponse(new ImproperMessageFormatResponse(), ImproperMessageFormatResponse.class);
         testResponse(new LcsMismatchErrorResponse(), LcsMismatchErrorResponse.class);
         testResponse(new LengthMismatchErrorResponse(), LengthMismatchErrorResponse.class);
+        testResponse(new SystemErrorResponse(), SystemErrorResponse.class);
 
         boolean responseCodeNotSupportedThrown = false;
         try {

@@ -16,6 +16,7 @@ import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.Improp
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.LcsMismatchErrorResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.LengthMismatchErrorResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.PingResponse;
+import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.SystemErrorResponse;
 import com.taptrack.tcmptappy.tcmp.common.CommandCodeNotSupportedException;
 import com.taptrack.tcmptappy.tcmp.common.CommandFamily;
 import com.taptrack.tcmptappy.tcmp.common.ResponseCodeNotSupportedException;
@@ -95,6 +96,10 @@ public class SystemCommandLibrary implements CommandFamily {
 
             case PingResponse.COMMAND_CODE:
                 parsedMessage = new PingResponse();
+                break;
+
+            case SystemErrorResponse.COMMAND_CODE:
+                parsedMessage = new SystemErrorResponse();
                 break;
 
             default:

@@ -19,6 +19,10 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses;
 
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 
+/**
+ * The Tappy has received a command with an incorrect LCS byte.
+ * This generally indicates corruption in the transmission.
+ */
 public class LcsMismatchErrorResponse extends com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage {
     public static final byte COMMAND_CODE = 0x02;
 

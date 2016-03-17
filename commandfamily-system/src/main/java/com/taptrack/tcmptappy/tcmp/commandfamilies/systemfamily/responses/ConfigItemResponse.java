@@ -19,6 +19,9 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses;
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * The Tappy has successfully set a configuration byte
+ */
 public class ConfigItemResponse extends AbstractSystemMessage {
     public static final byte COMMAND_CODE = (byte) 0x07;
 

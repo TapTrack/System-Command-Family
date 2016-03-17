@@ -19,6 +19,9 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands;
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * Set a configuration byte on the Tappy identified by a single byte parameter identifier
+ */
 public class SetConfigItemCommand extends AbstractSystemMessage {
     public static final byte COMMAND_CODE = (byte)0x01;
     private byte parameter;
@@ -34,18 +37,34 @@ public class SetConfigItemCommand extends AbstractSystemMessage {
         this.value = value;
     }
 
+    /**
+     * Get the parameter identifier this command is going to set
+     * @return
+     */
     public byte getParameter() {
         return parameter;
     }
 
+    /**
+     * Set the parameter identifier to change
+     * @param parameter
+     */
     public void setParameter(byte parameter) {
         this.parameter = parameter;
     }
 
+    /**
+     * Get the value the command will be setting
+     * @return
+     */
     public byte getValue() {
         return value;
     }
 
+    /**
+     * Change the value this command will set
+     * @param value
+     */
     public void setValue(byte value) {
         this.value = value;
     }

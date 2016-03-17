@@ -19,6 +19,11 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses;
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * The CRC on a command the Tappy received did not match what it expected
+ *
+ * This likely indicates some sort of data corruption in transmission
+ */
 public class CrcMismatchErrorResponse extends AbstractSystemMessage {
     public static final byte COMMAND_CODE = 0x03;
     protected byte[] mErrorMessage;

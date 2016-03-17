@@ -9,6 +9,6 @@ public class GetFirmwareVersionCommandTest {
     @Test
     public void testGetCommandCode() throws Exception {
         GetFirmwareVersionCommand command = new GetFirmwareVersionCommand();
-        assertEquals(command.getCommandCode(),(byte)0xFE);
+        assertEquals(command.getCommandCode(),(byte)0xFF);
     }
 }

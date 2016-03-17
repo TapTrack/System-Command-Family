@@ -32,7 +32,7 @@ ext.globalCfg = [
         minSdkVersion: 18,
         compileSdkVersion: 23,
         buildToolsVersion: "23.0.2",
-        publishedVersion: "0.7.0",
+        publishedVersion: "0.8.0",
         publishedGroupId : 'com.taptrack.tcmptappy',
 ]
 
@@ -52,8 +52,8 @@ ext.bintrayCfg = [
         ],
 
 
-        siteUrl : 'https://github.com/TapTrack/TappyBLE',
-        gitUrl : 'https://github.com/TapTrack/TappyBLE.git',
+        siteUrl : 'https://github.com/TapTrack/System-Command-Family',
+        gitUrl : 'https://github.com/TapTrack/System-Command-Family.git',
 
         developerId : "TapTrack",
         developerName : "TapTrack",

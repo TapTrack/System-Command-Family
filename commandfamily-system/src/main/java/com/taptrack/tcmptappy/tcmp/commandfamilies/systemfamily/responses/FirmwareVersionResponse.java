@@ -5,6 +5,9 @@ import com.taptrack.tcmptappy.tcmp.StandardLibraryVersionResponse;
 import com.taptrack.tcmptappy.tcmp.StandardLibraryVersionResponseDelegate;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * Response containing the firmware version running on the connected Tappy
+ */
 public class FirmwareVersionResponse extends AbstractSystemMessage implements StandardLibraryVersionResponse {
     public static final byte COMMAND_CODE = 0x06;
     private StandardLibraryVersionResponseDelegate delegate;

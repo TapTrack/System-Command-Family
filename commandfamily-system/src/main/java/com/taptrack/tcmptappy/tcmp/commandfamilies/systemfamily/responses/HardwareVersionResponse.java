@@ -21,6 +21,9 @@ import com.taptrack.tcmptappy.tcmp.StandardLibraryVersionResponse;
 import com.taptrack.tcmptappy.tcmp.StandardLibraryVersionResponseDelegate;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * The Tappy is reporting the current version of the hardware inside the device.
+ */
 public class HardwareVersionResponse extends AbstractSystemMessage implements StandardLibraryVersionResponse {
     public static final byte COMMAND_CODE = 0x05;
     private StandardLibraryVersionResponseDelegate delegate;

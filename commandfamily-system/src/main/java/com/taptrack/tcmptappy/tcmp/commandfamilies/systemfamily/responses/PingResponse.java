@@ -19,6 +19,9 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses;
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.AbstractSystemMessage;
 
+/**
+ * Tappy's reply to a ping command
+ */
 public class PingResponse extends AbstractSystemMessage {
     public static final byte COMMAND_CODE = (byte) 0xFD;
 
