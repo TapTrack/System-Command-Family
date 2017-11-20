@@ -1,10 +1,4 @@
-if(project.hasProperty("android")) {
-    apply plugin: 'com.github.dcendents.android-maven'
-}
-else {
-    apply plugin: 'maven'
-}
-
+apply plugin: 'com.github.dcendents.android-maven'
 
 group = publishedGroupId                               // Maven Group ID for the artifact
 

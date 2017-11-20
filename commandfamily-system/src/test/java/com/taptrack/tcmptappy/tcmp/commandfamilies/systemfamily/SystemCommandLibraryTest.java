@@ -2,12 +2,14 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily;
 
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.TCMPMessage;
+import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.ConfigureKioskModeCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.GetBatteryLevelCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.GetFirmwareVersionCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.GetHardwareVersionCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.PingCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.SetConfigItemCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.ConfigItemResponse;
+import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.ConfigureKioskModeResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.CrcMismatchErrorResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.FirmwareVersionResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.GetBatteryLevelResponse;
@@ -65,6 +67,7 @@ public class SystemCommandLibraryTest {
     }
     @Test
     public void testParseCommand() throws Exception {
+        testCommand(new ConfigureKioskModeCommand(),ConfigureKioskModeCommand.class);
         testCommand(new GetBatteryLevelCommand(),GetBatteryLevelCommand.class);
         testCommand(new GetFirmwareVersionCommand(),GetFirmwareVersionCommand.class);
         testCommand(new GetHardwareVersionCommand(),GetHardwareVersionCommand.class);
@@ -92,6 +95,7 @@ public class SystemCommandLibraryTest {
     @Test
     public void testParseResponse() throws Exception {
         testResponse(new ConfigItemResponse(),ConfigItemResponse.class);
+        testResponse(new ConfigureKioskModeResponse(),ConfigureKioskModeResponse.class);
         testResponse(new CrcMismatchErrorResponse(),CrcMismatchErrorResponse.class);
         testResponse(new FirmwareVersionResponse(),FirmwareVersionResponse.class);
         testResponse(new GetBatteryLevelResponse(),GetBatteryLevelResponse.class);

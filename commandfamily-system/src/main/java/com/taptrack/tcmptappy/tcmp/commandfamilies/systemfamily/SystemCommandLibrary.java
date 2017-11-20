@@ -2,12 +2,14 @@ package com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily;
 
 import com.taptrack.tcmptappy.tcmp.MalformedPayloadException;
 import com.taptrack.tcmptappy.tcmp.TCMPMessage;
+import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.ConfigureKioskModeCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.GetBatteryLevelCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.GetHardwareVersionCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.GetFirmwareVersionCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.PingCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.commands.SetConfigItemCommand;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.ConfigItemResponse;
+import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.ConfigureKioskModeResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.CrcMismatchErrorResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.FirmwareVersionResponse;
 import com.taptrack.tcmptappy.tcmp.commandfamilies.systemfamily.responses.GetBatteryLevelResponse;
@@ -48,6 +50,10 @@ public class SystemCommandLibrary implements CommandFamily {
                 parsedMessage = new SetConfigItemCommand();
                 break;
 
+            case ConfigureKioskModeCommand.COMMAND_CODE:
+                parsedMessage = new ConfigureKioskModeCommand();
+                break;
+
             default:
                 throw new CommandCodeNotSupportedException(
                         SystemCommandLibrary.class.getSimpleName()+
@@ -64,6 +70,10 @@ public class SystemCommandLibrary implements CommandFamily {
         switch(message.getCommandCode()) {
             case ConfigItemResponse.COMMAND_CODE:
                 parsedMessage = new ConfigItemResponse();
+                break;
+
+            case ConfigureKioskModeResponse.COMMAND_CODE:
+                parsedMessage = new ConfigureKioskModeResponse();
                 break;
 
             case CrcMismatchErrorResponse.COMMAND_CODE:

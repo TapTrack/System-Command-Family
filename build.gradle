@@ -24,6 +24,12 @@ allprojects {
     }
 }
 
+subprojects {
+    tasks.withType(Javadoc).all {
+        failOnError = false
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
@@ -32,7 +38,7 @@ ext.globalCfg = [
         minSdkVersion: 18,
         compileSdkVersion: 23,
         buildToolsVersion: "23.0.2",
-        publishedVersion: "0.8.0",
+        publishedVersion: "0.9.0",
         publishedGroupId : 'com.taptrack.tcmptappy',
 ]
 
