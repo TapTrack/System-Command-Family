@@ -14,7 +14,7 @@
   ~ limitations under the License.
   -->
 
-<manifest package="com.taptrack.tcmptappy.commandfamily.systemfamily"
+<manifest package="com.taptrack.tcmptappy2.commandfamily.systemfamily"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
