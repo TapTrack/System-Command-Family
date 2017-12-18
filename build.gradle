@@ -58,7 +58,7 @@ ext.bintrayCfg = [
 
         publishedArtifacts : [
                 systemCommandFamily: [
-                        bintrayName : 'commandfamily-system',
+                        bintrayName : 'commandfamily-system-2',
                         libraryName : 'System TCMP Command Family',
                         artifact : 'commandfamily-system',
                         libraryDescription : 'Command family for system-level tappy commands',
