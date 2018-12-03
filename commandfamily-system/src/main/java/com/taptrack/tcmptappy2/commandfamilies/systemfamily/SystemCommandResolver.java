@@ -28,7 +28,7 @@ import com.taptrack.tcmptappy2.TCMPMessage;
 import java.util.Arrays;
 
 public class SystemCommandResolver implements CommandFamilyMessageResolver {
-    static final byte[] FAMILY_ID = new byte[]{0x00,0x00};
+    public static final byte[] FAMILY_ID = new byte[]{0x00,0x00};
 
     private static void assertFamilyMatches(@NonNull TCMPMessage message) {
         if (!Arrays.equals(message.getCommandFamily(),FAMILY_ID)) {
