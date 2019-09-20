@@ -4,7 +4,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.Size;
 
+import com.taptrack.tcmptappy2.CommandFamilyMessageResolver;
+import com.taptrack.tcmptappy2.MalformedPayloadException;
+import com.taptrack.tcmptappy2.TCMPMessage;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.ConfigureKioskModeCommand;
+import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.ConfigureOnboardScanCooldownCommand;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.GetBatteryLevelCommand;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.GetFirmwareVersionCommand;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.GetHardwareVersionCommand;
@@ -12,6 +16,7 @@ import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.PingCommand
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.SetConfigItemCommand;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.ConfigItemResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.ConfigureKioskModeResponse;
+import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.ConfigureOnboardScanCooldownResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.CrcMismatchErrorResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.FirmwareVersionResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.GetBatteryLevelResponse;
@@ -21,9 +26,6 @@ import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.LcsMismatc
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.LengthMismatchErrorResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.PingResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.SystemErrorResponse;
-import com.taptrack.tcmptappy2.CommandFamilyMessageResolver;
-import com.taptrack.tcmptappy2.MalformedPayloadException;
-import com.taptrack.tcmptappy2.TCMPMessage;
 
 import java.util.Arrays;
 
@@ -65,6 +67,10 @@ public class SystemCommandResolver implements CommandFamilyMessageResolver {
 
             case ConfigureKioskModeCommand.COMMAND_CODE:
                 parsedMessage = new ConfigureKioskModeCommand();
+                break;
+
+            case ConfigureOnboardScanCooldownCommand.COMMAND_CODE:
+                parsedMessage = new ConfigureOnboardScanCooldownCommand();
                 break;
 
             default:
@@ -124,6 +130,10 @@ public class SystemCommandResolver implements CommandFamilyMessageResolver {
 
             case SystemErrorResponse.COMMAND_CODE:
                 parsedMessage = new SystemErrorResponse();
+                break;
+
+            case ConfigureOnboardScanCooldownResponse.COMMAND_CODE:
+                parsedMessage = new ConfigureOnboardScanCooldownResponse();
                 break;
 
             default:

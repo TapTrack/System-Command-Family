@@ -3,6 +3,7 @@ package com.taptrack.tcmptappy2.commandfamilies.systemfamily;
 import com.taptrack.tcmptappy2.MalformedPayloadException;
 import com.taptrack.tcmptappy2.TCMPMessage;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.ConfigureKioskModeCommand;
+import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.ConfigureOnboardScanCooldownCommand;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.GetBatteryLevelCommand;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.GetFirmwareVersionCommand;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.GetHardwareVersionCommand;
@@ -10,6 +11,7 @@ import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.PingCommand
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.commands.SetConfigItemCommand;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.ConfigItemResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.ConfigureKioskModeResponse;
+import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.ConfigureOnboardScanCooldownResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.CrcMismatchErrorResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.FirmwareVersionResponse;
 import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.GetBatteryLevelResponse;
@@ -73,6 +75,7 @@ public class SystemCommandResolverTest {
         assertTrue(testCommandSupported(new GetHardwareVersionCommand(),GetHardwareVersionCommand.class));
         assertTrue(testCommandSupported(new PingCommand(),PingCommand.class));
         assertTrue(testCommandSupported(new SetConfigItemCommand(),SetConfigItemCommand.class));
+        assertTrue(testCommandSupported(new ConfigureOnboardScanCooldownCommand(),ConfigureOnboardScanCooldownCommand.class));
 
         assertFalse(testCommandSupported(new FakeCommand(),FakeCommand.class));
     }
@@ -100,6 +103,7 @@ public class SystemCommandResolverTest {
         assertTrue(testResponseSupported(new ImproperMessageFormatResponse(), ImproperMessageFormatResponse.class));
         assertTrue(testResponseSupported(new LcsMismatchErrorResponse(), LcsMismatchErrorResponse.class));
         assertTrue(testResponseSupported(new LengthMismatchErrorResponse(), LengthMismatchErrorResponse.class));
+        assertTrue(testResponseSupported(new ConfigureOnboardScanCooldownResponse(), ConfigureOnboardScanCooldownResponse.class));
         assertTrue(testResponseSupported(new SystemErrorResponse(), SystemErrorResponse.class));
 
         assertFalse(testResponseSupported(new FakeResponse(), FakeResponse.class));
