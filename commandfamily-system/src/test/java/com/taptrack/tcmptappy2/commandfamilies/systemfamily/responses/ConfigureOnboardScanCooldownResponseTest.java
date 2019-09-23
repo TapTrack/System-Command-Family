@@ -1,6 +1,4 @@
-package com.taptrack.tcmptappy2.responsefamilies.systemfamily.responses;
-
-import com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses.ConfigureOnboardScanCooldownResponse;
+package com.taptrack.tcmptappy2.commandfamilies.systemfamily.responses;
 
 import org.junit.Test;
 

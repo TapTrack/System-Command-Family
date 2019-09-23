@@ -23,6 +23,7 @@ import com.taptrack.tcmptappy2.commandfamilies.systemfamily.AbstractSystemMessag
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 /**
@@ -43,6 +44,36 @@ public class SetConfigItemCommand extends AbstractSystemMessage {
         public static final byte BUZZER_DURATION = 0x05;
         public static final byte GREEN_LED_DURATION = 0x06;
         public static final byte RED_LED_DURATION = 0x07;
+        public static final byte ENABLE_BLUETOOTH_PIN_PARING = 0x08;
+        public static final byte DISABLE_BLUETOOTH_PIN_PAIRING = 0x09;
+        public static final byte DISABLE_BLUE_LIGHT_DURING_TAG_POLLING = 0x0A;
+        public static final byte ENABLE_BLUE_LIGHT_DURING_TAG_POLLING = 0x0B;
+    }
+
+    /**
+     * Convenience function for creating a Bluetooth PIN pairing command
+     *
+     * @param pin the pin to use, must be six characters long with each character being
+     *            a number from 0-9
+     * @throws IllegalArgumentException if PIN is invalid length or contains non-numeric
+     * characters.
+     *
+     * @return configuration command for Bluetooth PIN pairing
+     */
+    public static SetConfigItemCommand makeBluetoothPINParingCommand(String pin) {
+
+        if (pin.length() != 6) {
+            throw new IllegalArgumentException("PIN must be six characters long");
+        } else if (!pin.matches("[0-9]+")){
+            throw new IllegalArgumentException("PIN must be only numbers");
+        }
+
+        byte[] configOptions = pin.getBytes(StandardCharsets.US_ASCII);
+
+        return new SetConfigItemCommand(
+            ParameterBytes.ENABLE_BLUETOOTH_PIN_PARING,
+            configOptions
+        );
     }
 
     public SetConfigItemCommand() {
@@ -53,6 +84,11 @@ public class SetConfigItemCommand extends AbstractSystemMessage {
     public SetConfigItemCommand(byte parameter, byte value) {
         this.parameter = parameter;
         this.value = new byte[]{value};
+    }
+
+    public SetConfigItemCommand(byte parameter) {
+        this.parameter = parameter;
+        this.value = new byte[]{};
     }
 
     public SetConfigItemCommand(byte parameter, @NonNull byte[] value) {

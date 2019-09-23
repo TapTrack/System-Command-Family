@@ -61,6 +61,10 @@ public class ConfigureKioskModeCommand extends AbstractSystemMessage {
     private int postScanDelayTimeout = DEFAULT_POST_SCAN_DELAY_TIMEOUT;
     private boolean hasPostScanDelayTimeout;
 
+    public static final int DEFAULT_POST_SUCCESSFUL_SCAN_BEEP_DURATION = 50;
+    private int postSuccessfulScanBeepDuration = DEFAULT_POST_SUCCESSFUL_SCAN_BEEP_DURATION;
+    private boolean hasPostScanBeepDuration;
+
     public interface PollingSettings {
         /**
          * NO_CHANGE tells the Tappy to use whatever setting it currently has
@@ -326,6 +330,44 @@ public class ConfigureKioskModeCommand extends AbstractSystemMessage {
         return hasPostScanDelayTimeout;
     }
 
+
+    /**
+     * Retrieve the post-successful scan beep duration that this command will set. Note that this will only
+     * be included in the command sent to the Tappy if {@link .willTransmitPostScanBeepDuration()}
+     * returns true.
+     */
+    public int getPostSuccessfulScanBeepDuration() {
+        return postSuccessfulScanBeepDuration;
+    }
+
+    /**
+     * Set the post-scan delay timeout in milliseconds and marks it to be sent.
+     *
+     * @throws IllegalArgumentException if the timeout exceeds the maximum of 65535 milliseconds
+     * or is below 1
+     */
+    public void setPostSuccessfulScanBeepDuration(int postSuccessfulScanBeepDuration) {
+        if (postSuccessfulScanBeepDuration > 65535 || postSuccessfulScanBeepDuration <= 1) {
+            throw new IllegalArgumentException("the post scan delay timeout must be between 0 and 65535ms, inclusive");
+        }
+        hasPostScanBeepDuration = true;
+        this.postSuccessfulScanBeepDuration = postSuccessfulScanBeepDuration;
+    }
+
+    /**
+     * Disable the sending of the post scan beep duration if it was set.
+     */
+    public void disableTransmittingPostScanBeepDuration() {
+        hasPostScanBeepDuration = false;
+    }
+
+    /**
+     * Determines if the post scan beep duration will be transmitted.
+     */
+    public boolean willTransmitPostScanBeepDuration() {
+        return hasPostScanBeepDuration;
+    }
+
     @Override
     public void parsePayload(byte[] payload) throws MalformedPayloadException {
         if(payload.length < 4)
@@ -354,6 +396,11 @@ public class ConfigureKioskModeCommand extends AbstractSystemMessage {
         if (payload.length >= 10) {
             this.hasPostScanDelayTimeout = true;
             this.postScanDelayTimeout = Utils.uint16ToInt(new byte[]{payload[8],payload[9]});
+        }
+
+        if (payload.length >= 12) {
+            this.hasPostScanBeepDuration = true;
+            this.postSuccessfulScanBeepDuration = Utils.uint16ToInt(new byte[]{payload[10], payload[11]});
         }
     }
 
@@ -385,6 +432,15 @@ public class ConfigureKioskModeCommand extends AbstractSystemMessage {
             byte[] delayArr = Utils.intToUint16(postScanDelayTimeout);
             try {
                 stream.write(delayArr);
+            } catch (IOException ignored) {
+                // this should be impossible
+            }
+        }
+
+        if (hasPostScanBeepDuration) {
+            byte[] durationArr = Utils.intToUint16(postSuccessfulScanBeepDuration);
+            try {
+                stream.write(durationArr);
             } catch (IOException ignored) {
                 // this should be impossible
             }

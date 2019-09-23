@@ -5,7 +5,7 @@ System command family for Tappy devices.
 
 For projects using the latest Android Tappy SDK, you should use the artifact:
 ```groovy
-compile "com.taptrack.tcmptappy2:commandfamily-system:2.0.4"
+compile "com.taptrack.tcmptappy2:commandfamily-system:2.1.1"
 ```
 
 If your project is based on the earlier, deprecated TappyBLE SDK, the latest
